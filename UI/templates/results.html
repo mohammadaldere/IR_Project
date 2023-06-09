@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="static/res_style.css" />
+</head>
+
+<body>
+    
+    <div id="header">
+        <div id="topbar">
+            <div class="hero">
+                <form action="{{ url_for('search')}}" method="post">
+                    <div id="searchbar" type="text">
+                            
+                            <input name="q" id="searchbartext" type="text" value="{{q}}">
+                            <button id="searchbarbutton">
+                                <img src="static/Img/search-icon.svg" id="mic" alt="">
+                            </button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="optionsbar">
+            
+        </div>
+    </div>
+
+    
+    <div id="searchresultsarea">
+        <p id="searchresultsnumber">About {{docs|length}} results ({{time}} seconds) </p>
+        {% for doc in docs %}
+        <a href="{{url_for('get_doc')}}?id={{doc.doc_id}}">
+            <div class="searchresult">
+                <h2>{{doc.title}}</h2>
+                <a>{{url_for('get_doc')}}?id={{doc.doc_id}}</a>
+                {% set t = doc.text %}
+                <p>{{t[:100]}}...</p>
+                <hr class="searchresult">
+            </div>
+        </a>
+        {% endfor %}
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="static/doc_style.css" />
+</head>
+
+
+<body>
+    <section class="introduction-section">
+        <div class="container">
+            <h1>{{doc.title}}</h1>
+            <p>{{doc.text}}</p>
+        </div>
+        <div class="comment-section">
+          <h3>Comments:</h3>
+        {% for comment in comments %}
+            <div class="dialogbox">
+              <div class="body">
+                <span class="tip tip-up"></span>
+                <div class="message">
+                  <span>{{comment.text}}</span>
+                </div>
+              </div>
+        {% endfor %}
+      </div>
+    </section>
+</body>
+
+
+</html>

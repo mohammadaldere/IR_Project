@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Google Search find anything UI Design">
+    <title>Google Search | Search anything</title>
+    <link rel="stylesheet" href="static/index_style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <form action="{{ url_for('search')}}" method="post">
+            <div class="searchBox">
+                <!--<img src="static/Img/google-logo-9808.png" id="google-img">-->
+                <input name="q" id="input" type="text" placeholder="search...">
+                <img src="static/Img/search-icon.svg" alt="" id="mic">
+            </div>
+        </form>
+    </div>
+    <script>
+        let input = document.getElementById('input');
+        if(window.innerWidth < 430){
+        input.setAttribute('placeholder', 'Search')
+        }
+    </script>
+</body>
+
+</html>
